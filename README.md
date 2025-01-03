@@ -32,4 +32,10 @@ FitUp generates revenue through three tiered subscription plans:
 - **6-month subscription.**
 - **1-year subscription.**
 
+## wireframe and mockup link 
+[wireframe](https://www.figma.com/design/0F7vLtIUjWXeMaeq0zm1ul/masterpiece?node-id=18-485&t=5DEKzw5zh9zsxEbi-1)
+[mockup](https://www.figma.com/design/0F7vLtIUjWXeMaeq0zm1ul/masterpiece?node-id=0-1&t=5DEKzw5zh9zsxEbi-1)
+
+  
+
 Subscriptions are available for both gyms and nurseries to display their services, as well as for users to access the platform, with subscription prices displayed.
