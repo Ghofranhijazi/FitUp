@@ -37,6 +37,7 @@ FitUp generates revenue through three tiered subscription plans:
 ## wireframe and mockup link 
 [wireframe](https://www.figma.com/design/0F7vLtIUjWXeMaeq0zm1ul/masterpiece?node-id=18-485&t=5DEKzw5zh9zsxEbi-1)
 [mockup](https://www.figma.com/design/0F7vLtIUjWXeMaeq0zm1ul/masterpiece?node-id=0-1&t=5DEKzw5zh9zsxEbi-1)
+[live URL](https://ghofranhijazi.github.io/FitUp/)
 
   
 
