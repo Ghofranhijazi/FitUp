@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>service-details</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Main CSS File -->
+    <link href="assets/css/main.css" rel="stylesheet">
+
+    <!-- googleapis -->
+    <script async src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY">
+    </script>
+
+</head>
+
+<body class="index-page">
+
+    <header id="header" class="header d-flex align-items-center fixed-top">
+        <div class="container-fluid container-xl position-relative d-flex align-items-center">
+
+            <a href="index.html" class="logo d-flex align-items-center me-auto">
+                <h1 class="sitename">FitUp</h1>
+            </a>
+
+            <nav id="navmenu" class="navmenu">
+                <ul>
+                    <li><a href="index.html#hero" class="active">Home</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="index.html#team">Trainers</a></li>
+                    <li><a href="index.html#cards">Membership</a></li>
+                    <li class="dropdown"><a href="#hero"><span>What are you looking for ?</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                        <ul>
+                            <li><a href="gym-only-page.html">Gym only</a></li>
+                            <li><a href="gym-indoor-nursery-page.html">Gym with indoor nursery</a></li>
+                            <li><a href="gym-nearby-nursery-page.html">Gym with nearby nursery</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+                <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+            </nav>
+
+            <a class="cta-btn" href="index.html#hero">Get Started</a>
+
+        </div>
+    </header>
+
+    <main class="main">
+
+        <!-- Page Title -->
+        <div class="page-title dark-background" data-aos="fade"
+            style="background-image: url(assets/img/gym-only/hero1.jpg);">
+            <div class="container position-relative">
+                <h1>Sports clubs</h1>
+                <p>Find gyms that focus on fitness with state-of-the-art equipment and no distractions.</p>
+                <nav class="breadcrumbs">
+                    <ol>
+                        <li><a href="gym-only-page.html">Gym only</a></li>
+                        <li class="current">More information</li>
+                    </ol>
+                </nav>
+            </div>
+        </div><!-- End Page Title -->
+
+
+        <!-- Portfolio Details Section -->
+        <section id="portfolio-details" class="portfolio-details section">
+
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+                <div class="row gy-4">
+
+                    <div class="col-lg-8">
+
+                        <img src="assets/img/gym-only/img1.jpg" class="card-img-top" alt="...">
+
+                        <br>
+                        <br>
+                  
+                        <div>
+                            <button class="btn btn-primary" onclick="window.location.href='reservation.html';">
+                                <span>Book now</span>
+                            </button>
+                            
+                            
+                            <button class="btn btn-primary" onclick="showNearestNursery()">
+                                <span>Nearest Nursery</span>
+                            </button>
+                        </div>
+                    
+
+                        <!-- مكان الخريطة -->
+                        <div id="map" style="width: 100%; height: 400px; margin-top: 20px;"></div>
+
+                        <script>
+                            function showNearestNursery() {
+                                // بيانات الحضانات الوهمية
+                                const nurseries = [
+                                    { name: "Sunny Kids Nursery", lat: 31.9539, lng: 35.9106 }, // عمّان
+                                    { name: "Happy Nest Nursery", lat: 31.9454, lng: 35.9284 }, // موقع وهمي آخر
+                                ];
+
+                                // مركز الخريطة الأولي (أقرب نقطة - يمكنك تخصيصه بناءً على الموقع الحالي)
+                                const center = nurseries[0];
+
+                                // إنشاء الخريطة باستخدام Google Maps API
+                                const map = new google.maps.Map(document.getElementById("map"), {
+                                    zoom: 14,
+                                    center: { lat: center.lat, lng: center.lng },
+                                });
+
+                                // إضافة علامات على الخريطة لكل حضانة
+                                nurseries.forEach((nursery) => {
+                                    new google.maps.Marker({
+                                        position: { lat: nursery.lat, lng: nursery.lng },
+                                        map: map,
+                                        title: nursery.name,
+                                    });
+                                });
+
+                                alert(`Showing nearest nursery: ${center.name}`);
+                            }
+                        </script>
+
+                        <!-- أضف مكتبة Google Maps API -->
+                        <script async src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY">
+                        </script>
+
+
+
+
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="portfolio-info" data-aos="fade-up" data-aos-delay="200">
+                            <h3>Gym information</h3>
+                            <ul>
+                                <li><strong>Name</strong>: Grace & Strength</li>
+                                <li><strong>Address</strong>: Al Khaldiya Street, Amman, Jordan, 11953.
+                                </li>
+                                <li><strong>opening hours</strong>:
+                                    Monday to Friday: 6:00 AM – 10:00 PM
+                                    Saturday: 8:00 AM – 8:00 PM
+                                    Sunday: Closed</li>
+                                <li><strong>prices</strong>: Monthly Membership: 50 JOD
+                                    Session Pass: 30 JOD
+                                    Day Pass: 10 JOD</li>
+                            </ul>
+                        </div>
+                        <div class="portfolio-description" data-aos="fade-up" data-aos-delay="300">
+                            <h2>Grace & Strength</h2>
+                            <p>is a modern fitness center offering top-notch equipment and personalized training
+                                programs. Whether you're a beginner or an expert, we provide strength, fitness, and yoga
+                                classes led by experienced trainers. Our mission is to empower you to achieve your
+                                health and fitness goals.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section><!-- /Portfolio Details Section -->
+
+    </main>
+
+
+
+
+    <footer id="footer" class="footer dark-background">
+
+        <div class="container footer-top">
+          <div class="row gy-4">
+            <div class="col-lg-4 col-md-6 footer-about">
+              <a href="index.html" class="logo d-flex align-items-center">
+                <span class="sitename">FitUp</span>
+              </a>
+              <div class="footer-contact pt-3">
+                <h4>Our location :</h4>
+                <p>108 Mecca Street</p>
+                <p>Amman, Jordan 11118</p>
+                <p class="mt-3"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
+                <p><strong>Email:</strong> <span>FitUp@example.com</span></p>
+              </div>
+              <div class="social-links d-flex mt-4">
+                <a href=""><i class="bi bi-twitter-x"></i></a>
+                <a href=""><i class="bi bi-facebook"></i></a>
+                <a href=""><i class="bi bi-instagram"></i></a>
+                <a href=""><i class="bi bi-linkedin"></i></a>
+              </div>
+            </div>
+    
+            <div class="col-lg-2 col-md-3 footer-links">
+              <h4>Useful Links</h4>
+              <ul>
+                <li><i class="bi bi-chevron-right"></i> <a href="index.html#hero">Home</a></li>
+                <li><i class="bi bi-chevron-right"></i> <a href="index.html#about">About us</a></li>
+                <li><i class="bi bi-chevron-right"></i> <a href="index.html#services">Services</a></li>
+                <li><i class="bi bi-chevron-right"></i> <a
+                    href="https://istd.gov.jo/ebv4.0/root_storage/en/eb_list_page/general_sales_tax_law_and_its_amendments_2023-1.pdf">Terms
+                    of service</a></li>
+                <li><i class="bi bi-chevron-right"></i> <a href="https://www.realpage.com/legal/privacy-policy/">Privacy
+                    policy</a></li>
+              </ul>
+            </div>
+    
+            <div class="col-lg-2 col-md-3 footer-links">
+              <h4>Our Services</h4>
+              <ul>
+                <li><i class="bi bi-chevron-right"></i> <a href="gym-only-page.html">Sports clubs</a></li>
+                <li><i class="bi bi-chevron-right"></i> <a href="gym-nearby-nursery-page.html">Nurseries</a></li>
+                <li><i class="bi bi-chevron-right"></i> <a href="index.html#team">Meet Our Best Trainers</a></li>
+                <li><i class="bi bi-chevron-right"></i> <a href="index.html#testimonials">Testimonials & Success Story</a>
+                </li>
+                <li><i class="bi bi-chevron-right"></i> <a href="index.html#cards">Our Membership Plans</a></li>
+              </ul>
+            </div>
+    
+            <div class="col-lg-2 col-md-3 footer-links">
+              <h4>Our Newsletter</h4>
+              <ul>
+                <li><i class="bi bi-chevron-right"></i> <a
+                    href="https://my.visme.co/view/mx0ok8on-untitled-project">Newsletter</a></li>
+              </ul>
+            </div>
+    
+          </div>
+        </div>
+    
+      </footer>
+
+    <!-- Scroll Top -->
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Preloader -->
+    <div id="preloader"></div>
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+
+    <!-- Main JS File -->
+    <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

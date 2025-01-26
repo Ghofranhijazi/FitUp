@@ -1,0 +1,74 @@
+a {
+    color: var(--accent-color);
+    text-decoration: none !important;
+    transition: 0.3s;
+  }
+
+  h1{
+    text-align: center;
+    font-size: 58px;
+	text-transform: uppercase;
+	font-weight: 700;
+	color: #fff !important;
+	margin: 0px;
+  }
+  
+.padding {
+    padding: 4rem !important;
+    margin-left: 0; /* Center the card */
+}
+
+/* Card styling */
+.card {
+    width: 100%; /* Use full width on smaller screens */
+    max-width: 600px; /* Limit the width on larger screens */
+    height: auto; /* Allow height to adjust */
+    margin: auto;
+    background-color: #fff;
+    border: 1px solid #c8ced3;
+    border-radius: 0.25rem;
+}
+
+/* Header styling */
+.card-header {
+    padding: 0.75rem 1.25rem;
+    background-color: #f0f3f5;
+    border-bottom: 1px solid #c8ced3;
+}
+
+/* Card body styling */
+.card-body {
+    padding: 2rem;
+}
+
+/* Form control focus styling */
+.form-control:focus {
+    color: #5c6873;
+    background-color: #fff;
+    border-color: #c8ced3 !important;
+    outline: 0;
+    box-shadow: 0 0 0 #9C2A46;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+    .padding {
+        padding: 2rem; /* Less padding on smaller screens */
+    }
+
+    h1 {
+        font-size: 40px; /* Adjust the header size */
+    }
+
+    .card-body {
+        padding: 1.5rem; /* Less padding in card body */
+    }
+
+    .form-group {
+        margin-bottom: 1.5rem; /* Increase spacing between form elements */
+    }
+
+    .input-group {
+        width: 100%; /* Ensure input group is responsive */
+    }
+}
